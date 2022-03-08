@@ -9,7 +9,11 @@ app.get("/", (req, res) => {
   }
   console.log(cookies);
   res.writeHead(200, {
-    "Set-Cookie": ["yummy_cookie=choco", "tasty_cookie=strawberry"],
+    "Set-Cookie": [
+      "yummy_cookie=choco",
+      "tasty_cookie=strawberry",
+      `Permanent=cookies; Max-Age=${60 * 60 * 24 * 30}`,
+    ],
   });
   res.end("Cookie");
 });
